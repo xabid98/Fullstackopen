@@ -2,7 +2,17 @@ import  React,  { useState } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-
+const Statistics = (props) => {
+  <>
+<h1>statistics</h1>
+      <p>Good {props.good}</p>
+      <p>Neutral {props.neutral}</p>
+      <p>Bad {props.bad}</p>
+      <p>All {(props.good-props.bad)/(props.bad+props.good+props.neutral)}</p>
+      <p>Positive {props.good/(props.bad+props.good+props.neutral)}</p>
+      
+      </>
+      }
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -41,5 +51,6 @@ const App = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    <Statistics/>
   </React.StrictMode>,
 )
