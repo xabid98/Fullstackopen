@@ -4,10 +4,12 @@ import './index.css'
 import PropTypes from 'prop-types';
 
 const Statistics = ({good,neutral,bad,all,average,positive}) => {
+ 
+  if (all===0) {
+    return <p>No feedback given</p>
+  }
 
-  
-
-
+else{
 return <>
     <p>Good {good}</p>
     <p>neutral {neutral}</p>
@@ -17,7 +19,7 @@ return <>
     <p>positive {positive} %</p>
     
 </>
-
+}
 }
 
 Statistics.propTypes = {
@@ -37,7 +39,7 @@ const App = () => {
   const handleClickNeutral=()=> setNeutral(neutral+1)
   const handleClickBad=()=> setBad(bad+1)
   const all = good+neutral+bad
-  const average = ((good - bad)/all)*100
+  const average = ((good - bad)/all)
   const positive = (good/all)*100
 
 
